@@ -138,6 +138,7 @@
 		
 		//non funziona
 		function SwapPixel(n, id) {
+			console.log('bau');
 			
 			n = 100 - n;
 			
@@ -158,11 +159,18 @@
 			for (let y = 0; y < canvasHeight; ++y) {
 				for (let x = 0; x <= y; ++x) {
 					let index = (y * canvasWidth + x) * 4;
-					let index2 = (x * canvasWidth + y) * 4;
+					let index2 = (Math.random() * canvasWidth * canvasHeight) * 4;
+					console.log('index2');
+					
 					
 					if ((Math.random() * 100) < n) { 
 					
-						a = data[index];				//scambio i pixel
+						//scambio i pixel
+						[data[index], data[index2]] = [data[index2], data[index]];
+						[data[index+1], data[index2+1]] = [data[index2+1], data[index+1]];
+						[data[index+2], data[index2+2]] = [data[index2+2], data[index+2]];
+						
+						/*a = data[index];				//scambio i pixel
 						b = data[index + 1];
 						c = data[index + 2];
 						 
@@ -172,7 +180,7 @@
 						
 						data[index2] = a;
 						data[index2+1] = b;
-						data[index2+2] = c;
+						data[index2+2] = c;*/
 					
 					}
 				}
