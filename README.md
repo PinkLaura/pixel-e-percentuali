@@ -1,5 +1,5 @@
 ﻿# pixel-e-percentuali
-### Tentiamo di modificare immagini in modo che riescano a rendere intuitivamente valori percentuali
+### Tentiamo di modificare immagini in modo che riescano a rendere in maniera intuitiva valori percentuali
 
 ## Requisiti
 
