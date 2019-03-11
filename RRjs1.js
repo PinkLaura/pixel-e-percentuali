@@ -136,6 +136,7 @@
 
 		}
 		
+		//non funziona
 		function SwapPixel(n, id) {
 			
 			n = 100 - n;
@@ -184,7 +185,7 @@
 
 		
 		
-		//non funziona il reset
+		//non funziona il reset nel blur
 		function BlurImage(n, id){
 			
 			n = 100-n;
