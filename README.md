@@ -1,7 +1,7 @@
-# pixel-e-percentuali
-###Tentiamo di modificare immagini in modo che riescano a rendere intuitivamente valori percentuali
+﻿# pixel-e-percentuali
+##Tentiamo di modificare immagini in modo che riescano a rendere intuitivamente valori percentuali
 
-##Requisiti
+###Requisiti
 
 1. Il sistema dovrà essere on line e correttamente eseguito sui browser comuni (ad es. Firefox)
 2. Il sistema dovrà accettare in ingresso una immagine ad alta risoluzione (ad esempio con controllo <input>)
