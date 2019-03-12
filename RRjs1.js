@@ -6,15 +6,23 @@
 				newImage = document.getElementById('fileToUpload').files[0];
 				console.log(newImage);
 				
+				let reader  = new FileReader();
+				let srcNewImg = reader.readAsDataURL(newImage);
+				
 				let res = document.getElementById("reset");
+				res.setAttribute("src", srcNewImg);
+				
+				console.log(document.getElementById("reset").src);
+				
+				/*let res = document.getElementById("reset");
 				let ctxRes = res.getContext('2d');
-				let imgData = ctxImg.getImageData(0, 0, img.width, img.height).data;
+				let imgData = ctxRes.getImageData(0, 0, img.width, img.height).data;
 
-				ctxRes.drawImage(newImage, 0, 0);
+				ctxRes.drawImage(newImage, 0, 0);*/
 				
 				
 				/*let Res = document.getElementById("reset");
-				reset.setAttribute("src", newImage);
+				Res.setAttribute("src", newImage);
 				console.log(document.getElementById("reset").src);*/
 				
 				/*
