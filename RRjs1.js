@@ -6,12 +6,12 @@
 				newImage = document.getElementById('fileToUpload').files[0];
 				console.log(newImage);
 				
-				
-				
-				document.getElementById("reset").src = newImage;
-				/*
 				let Res = document.getElementById("reset");
+				reset.setAttribute("src", newImage);
+				console.log(document.getElementById("reset").src);
 				
+				/*
+				document.getElementById("reset").src = newImage;				
 				Res.parentNode.replaceChild(newImage, Res);*/
 			});
 	
@@ -33,7 +33,7 @@
 				RemoveRandomPixel(n, "immagine1");				
 				RemoveOrderedPixel(n, "immagine2");
 				ChangeAlpha(n, "immagine3");
-				SwapPixel(n, "immagine4");
+				//SwapPixel(n, "immagine4");
 		});
 		
 		
