@@ -1,9 +1,18 @@
  $(document).ready(function(){
 			
+			//var newImage = document.getElementById("reset")
 			
 			$('#submitImage').click(function(){
-				const selectedFile = document.getElementById('fileToUpload').files[0];
-				console.log('ciao');
+				newImage = document.getElementById('fileToUpload').files[0];
+				console.log(newImage);
+				
+				
+				
+				document.getElementById("reset").src = newImage;
+				/*
+				let Res = document.getElementById("reset");
+				
+				Res.parentNode.replaceChild(newImage, Res);*/
 			});
 	
 			
