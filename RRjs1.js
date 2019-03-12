@@ -6,9 +6,16 @@
 				newImage = document.getElementById('fileToUpload').files[0];
 				console.log(newImage);
 				
-				let Res = document.getElementById("reset");
+				let res = document.getElementById("reset");
+				let ctxRes = res.getContext('2d');
+				let imgData = ctxImg.getImageData(0, 0, img.width, img.height).data;
+
+				ctxRes.drawImage(newImage, 0, 0);
+				
+				
+				/*let Res = document.getElementById("reset");
 				reset.setAttribute("src", newImage);
-				console.log(document.getElementById("reset").src);
+				console.log(document.getElementById("reset").src);*/
 				
 				/*
 				document.getElementById("reset").src = newImage;				
