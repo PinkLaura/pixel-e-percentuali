@@ -1,8 +1,12 @@
  $(document).ready(function(){
 			
+			
+			$('#submitImage').click(function(){
+				const selectedFile = document.getElementById('fileToUpload').files[0];
+				console.log('ciao');
+			});
 	
-	 
-	 
+			
 			TurnInCanvas(document.getElementById("reset"));
 			TurnInCanvas(document.getElementById("immagine1"));
 			TurnInCanvas(document.getElementById("immagine2"));
@@ -195,8 +199,6 @@
 
 		}
 
-		
-		
 		//non funziona il reset nel blur
 		function BlurImage(n, id){
 			
