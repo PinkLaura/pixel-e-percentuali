@@ -1,41 +1,27 @@
  $(document).ready(function(){
 			
-			//var newImage = document.getElementById("reset")
-			
-			$('#submitImage').click(function(){
-				newImage = document.getElementById('fileToUpload').files[0];
-				console.log(newImage);
-				
-				let reader  = new FileReader();
-				let srcNewImg = reader.readAsDataURL(newImage);
-				
-				let res = document.getElementById("reset");
-				res.setAttribute("src", srcNewImg);
-				
-				console.log(document.getElementById("reset").src);
-				
-				/*let res = document.getElementById("reset");
-				let ctxRes = res.getContext('2d');
-				let imgData = ctxRes.getImageData(0, 0, img.width, img.height).data;
-
-				ctxRes.drawImage(newImage, 0, 0);*/
-				
-				
-				/*let Res = document.getElementById("reset");
-				Res.setAttribute("src", newImage);
-				console.log(document.getElementById("reset").src);*/
-				
-				/*
-				document.getElementById("reset").src = newImage;				
-				Res.parentNode.replaceChild(newImage, Res);*/
-			});
-	
-			
 			TurnInCanvas(document.getElementById("reset"));
 			TurnInCanvas(document.getElementById("immagine1"));
 			TurnInCanvas(document.getElementById("immagine2"));
 			TurnInCanvas(document.getElementById("immagine3"));
 			TurnInCanvas(document.getElementById("immagine4"));
+			
+			$('#submitImage').click(function(){
+				newImage = document.getElementById("fileToUpload").files[0];
+				console.log(newImage);
+				console.log(document.getElementById("reset").getAttribute("src"));
+				
+				let reader  = new FileReader();
+				let srcNewImg = reader.readAsDataURL(newImage);
+				
+				let res = document.getElementById("reset");
+				res.setAttribute('src', srcNewImg);
+				
+				console.log(document.getElementById("reset").getAttribute("src"));
+				
+				});
+	
+			
 			
 			// Evento chiamato al click
 			$('#submit').click(function(){
@@ -48,7 +34,7 @@
 				RemoveRandomPixel(n, "immagine1");				
 				RemoveOrderedPixel(n, "immagine2");
 				ChangeAlpha(n, "immagine3");
-				//SwapPixel(n, "immagine4");
+				SwapPixel(n, "immagine4");
 		});
 		
 		
@@ -84,7 +70,7 @@
 			//importo i dati salvati per riapplicare la funzione dall'inizio
 			let data = imageData.data;
 
-			console.log('miao1');
+			console.log('Prima di rimuovere pixel');
 
 			//faccio passare un pixel alla volta 
 			for (let y = 0; y < canvasHeight; ++y) {
@@ -100,7 +86,7 @@
 			}
 
 			ctx.putImageData(imageData, 0, 0);
-			console.log('miao');
+			console.log('Pixel rimossi');
 
 		}
 
@@ -120,7 +106,7 @@
         //importo i dati salvati per riapplicare la funzione dall'inizio
         let data = imageData.data;
 
-        console.log('miao3');
+        console.log('Prima del ciclo per rimuovere pixel ordinati');
 
         //faccio passare un pixel alla volta 
         for (let y = 0; y < canvasHeight; ++y) {
@@ -135,7 +121,7 @@
         }
 
         ctx.putImageData(imageData, 0, 0);
-        console.log('MIAO MIAO MIAOOOOOO');
+        console.log('Pixel ordinatamente rimossi');
 
     }
 
@@ -153,7 +139,7 @@
 			//importo i dati salvati per riapplicare la funzione dall'inizio
 			let data = imageData.data;
 
-			console.log('miao4');
+			console.log('ChangeAlpha partita');
 
 			//faccio passare un pixel alla volta 
 			for (let y = 0; y < canvasHeight; ++y) {
@@ -164,13 +150,13 @@
 			}
 
 			ctx.putImageData(imageData, 0, 0);
-			console.log('miao5');
+			console.log('Ciclo di ChangeAlpha finito');
 
 		}
 		
 		//non funziona
 		function SwapPixel(n, id) {
-			console.log('bau');
+			console.log('Chiamata swapPixel');
 			
 			n = 100 - n;
 			
@@ -185,14 +171,14 @@
 			//importo i dati salvati per riapplicare la funzione dall'inizio
 			let data = imageData.data;
 
-			console.log('miao1');
+			console.log('Prima del ciclo di Swap');
 
 			//faccio passare un pixel alla volta 
-			for (let y = 0; y < canvasHeight; ++y) {
-				for (let x = 0; x <= y; ++x) {
+			for (let y = 0; y < canvasHeight; y++) {
+				for (let x = 0; x < canvasWidth; x++) {
 					let index = (y * canvasWidth + x) * 4;
 					let index2 = (Math.random() * canvasWidth * canvasHeight) * 4;
-					console.log('index2');
+					//console.log('SwapIteration');
 					
 					
 					if ((Math.random() * 100) < n) { 
@@ -219,7 +205,7 @@
 			}
 
 			ctx.putImageData(imageData, 0, 0);
-			console.log('miao');
+			console.log('Dopo il ciclo di Swap');
 
 		}
 
