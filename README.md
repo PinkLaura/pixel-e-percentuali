@@ -20,6 +20,7 @@ La funzione S-shaped (ad esempio: 1/(1+e^(−10*(x−0.5)))) invece attenua i va
 - Rimozione pixel funzionante
 - Trasparenza funzionante
 - Swap funzionante con dubbi: pixel scambiati con posizioni casuali, va bene? Non è preciso al 100% ma effettua comunque uno scambio abbastanza preciso
+Ha senso che una percentuale del 30% scambi il 30% dei pixel e non il contrario?
 - Blur: non funziona il reset, non ho ben chiaro il range della libreria, dovrò capirlo meglio
 
 - due pagine separate, ha senso? upload sul server o filereader? 
