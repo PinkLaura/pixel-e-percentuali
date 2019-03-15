@@ -14,3 +14,13 @@
   4.4. la quantità di pixel fuori posto (cioè se probabilità 30%, il 30% dei pixel, scelti casualmente sarà al posto sbagliato, cioè il 15% dei pixel scelti casualmente sarà scambiato con un pixel dall'insieme di altri 15% di pixel scelti casualmente)
 5. La logica di conversione lineare agisce linearmente sulle funzioni ai punti 4. 
 La funzione S-shaped (ad esempio: 1/(1+e^(−10*(x−0.5)))) invece attenua i valoi vicini agli estremi del'intervallo [0-1].
+
+
+## STATO DELL'ARTE
+- Rimozione pixel funzionante
+- Trasparenza funzionante
+- Swap funzionante con dubbi: pixel scambiati con posizioni casuali, va bene? Non è preciso al 100% ma effettua comunque uno scambio abbastanza preciso
+- Blur: non funziona il reset, non ho ben chiaro il range della libreria, dovrò capirlo meglio
+
+- due pagine separate, ha senso? upload sul server o filereader? 
+- Sia slider che invio? ma quindi devo fare in modo che la casella di testo cambi numero quando sposto lo slider? Laura è confusa
