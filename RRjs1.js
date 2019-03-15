@@ -7,17 +7,28 @@
 			TurnInCanvas(document.getElementById("immagine4"));
 			
 			$('#submitImage').click(function(){
-				newImage = document.getElementById("fileToUpload").files[0];
-				console.log(newImage);
-				console.log(document.getElementById("reset").getAttribute("src"));
-				
+				let newImage = document.getElementById("fileToUpload").files[0];
+					console.log(newImage);
+					console.log(document.getElementById("reset").src);
+					
 				let reader  = new FileReader();
-				let srcNewImg = reader.readAsDataURL(newImage);
+	
+				reader.addEventListener("load", function () {
+					document.getElementById("reset").src = reader.result;
+				}, false);
+				
+				if (newImage) {
+					reader.readAsDataURL(newImage);
+				}
+				 
+				 	
+				
+				/*let srcNewImg = reader.readAsDataURL(newImage);
 				
 				let res = document.getElementById("reset");
 				res.setAttribute('src', srcNewImg);
 				
-				console.log(document.getElementById("reset").getAttribute("src"));
+				console.log(document.getElementById("reset").getAttribute("src"));*/
 				
 				});
 	
@@ -46,6 +57,7 @@
 		}
 
 		function resetImg(id) {
+					
 			let reset = document.getElementById("reset");
 
 			let img = document.getElementById(id);
@@ -154,7 +166,6 @@
 
 		}
 		
-		//non funziona
 		function SwapPixel(n, id) {
 			console.log('Chiamata swapPixel');
 			
