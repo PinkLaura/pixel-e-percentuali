@@ -1,6 +1,5 @@
  $(document).ready(function(){
 			
-			TurnInCanvas(document.getElementById("reset"));
 			TurnInCanvas(document.getElementById("immagine1"));
 			TurnInCanvas(document.getElementById("immagine2"));
 			TurnInCanvas(document.getElementById("immagine3"));
@@ -9,7 +8,6 @@
 			$('#submitImage').click(function(){
 				let newImage = document.getElementById("fileToUpload").files[0];
 					console.log(newImage);
-					console.log(document.getElementById("reset").src);
 					
 				let reader  = new FileReader();
 	
@@ -20,7 +18,7 @@
 				if (newImage) {
 					reader.readAsDataURL(newImage);
 				}
-								
+				 
 				});
 	
 			
