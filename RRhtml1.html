@@ -19,7 +19,7 @@
 					id ="submitImage">
 		</div>
 		
-		<div id = "nomediv">
+		<div id = "imageDiv">
 			<img 
 				id="reset" 
 				src="image.jpg" 
@@ -53,6 +53,8 @@
 			>
 			
 		</div>
+		
+		<div id = "insertN">
 		Inserisci un numero:
 		<input 
 			id = "value"
@@ -67,7 +69,27 @@
 			type="submit"
 			value = "Via!"
 			>
+		</div>
+		
+		<div id = "selectors">
+			<p> Seleziona il colore di sfondo: 
+
+			<select id="backgoundColor">
+			  <option value="White">Bianco
+			  <option value="Black">Nero
+			</select>
+			</p> 
 			
+			<p> Seleziona la logica di conversione: 
+
+			<select id="backgoundColor">
+			  <option value="Linear">Lineare
+			  <option value="S-shaped">S-shaped
+			</select>
+			</p> 
+		
+		</div>
+		
 	</div>
 </body>
 </html>
