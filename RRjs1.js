@@ -20,16 +20,7 @@
 				if (newImage) {
 					reader.readAsDataURL(newImage);
 				}
-				 
-				 	
-				
-				/*let srcNewImg = reader.readAsDataURL(newImage);
-				
-				let res = document.getElementById("reset");
-				res.setAttribute('src', srcNewImg);
-				
-				console.log(document.getElementById("reset").getAttribute("src"));*/
-				
+								
 				});
 	
 			
