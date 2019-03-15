@@ -71,8 +71,6 @@
 			//importo i dati salvati per riapplicare la funzione dall'inizio
 			let data = imageData.data;
 
-			console.log('Prima di rimuovere pixel');
-
 			//faccio passare un pixel alla volta 
 			for (let y = 0; y < canvasHeight; ++y) {
 				for (let x = 0; x < canvasWidth; ++x) {
@@ -87,8 +85,6 @@
 			}
 
 			ctx.putImageData(imageData, 0, 0);
-			console.log('Pixel rimossi');
-
 		}
 
 		function RemoveOrderedPixel(n, id) {
@@ -106,10 +102,8 @@
 
         //importo i dati salvati per riapplicare la funzione dall'inizio
         let data = imageData.data;
-
-        console.log('Prima del ciclo per rimuovere pixel ordinati');
-
-        //faccio passare un pixel alla volta 
+		
+		//faccio passare un pixel alla volta 
         for (let y = 0; y < canvasHeight; ++y) {
             for (let x = 0; x < canvasWidth; ++x) {
                 let index = (y * canvasWidth + x) * 4;
@@ -122,9 +116,7 @@
         }
 
         ctx.putImageData(imageData, 0, 0);
-        console.log('Pixel ordinatamente rimossi');
-
-    }
+      }
 
 		function ChangeAlpha(n, id) {
 			n = (n/100)*255;
@@ -140,8 +132,6 @@
 			//importo i dati salvati per riapplicare la funzione dall'inizio
 			let data = imageData.data;
 
-			console.log('ChangeAlpha partita');
-
 			//faccio passare un pixel alla volta 
 			for (let y = 0; y < canvasHeight; ++y) {
 				for (let x = 0; x < canvasWidth; ++x) {
@@ -151,12 +141,9 @@
 			}
 
 			ctx.putImageData(imageData, 0, 0);
-			console.log('Ciclo di ChangeAlpha finito');
-
 		}
 		
 		function SwapPixel(n, id) {
-			console.log('Chiamata swapPixel');
 			
 			n = 100 - n;
 			
@@ -170,8 +157,6 @@
 
 			//importo i dati salvati per riapplicare la funzione dall'inizio
 			let data = imageData.data;
-
-			console.log('Prima del ciclo di Swap');
 
 			//faccio passare un pixel alla volta 
 			for (let y = 0; y < canvasHeight; y++) {
@@ -193,8 +178,7 @@
 			}
 
 			ctx.putImageData(imageData, 0, 0);
-			console.log('Dopo il ciclo di Swap');
-
+		
 		}
 
 		//non funziona il reset nel blur
