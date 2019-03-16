@@ -5,6 +5,8 @@
 			TurnInCanvas(document.getElementById("immagine3"));
 			TurnInCanvas(document.getElementById("immagine4"));
 			
+			
+			
 			$('#submitImage').click(function(){
 				let newImage = document.getElementById("fileToUpload").files[0];
 					console.log(newImage);
@@ -20,22 +22,35 @@
 				}
 				 
 				});
-	
-			
-			
+
+
 			// Evento chiamato al click
 			$('#submit').click(function(){
 				resetImg("immagine1");
 				resetImg("immagine2");
 				resetImg("immagine3");
 				resetImg("immagine4");
-			
+				
+				//prendo il valore di n e applico la logica di conversione richiesta
 				let n = $('#value').val();	
+				let cLogic = $('#conversionLogic').val();
+				n = applyConversionLogic ( n, cLogic);
+				
 				RemoveRandomPixel(n, "immagine1");				
 				RemoveOrderedPixel(n, "immagine2");
 				ChangeAlpha(n, "immagine3");
 				SwapPixel(n, "immagine4");
 		});
+		
+		
+		function applyConversionLogic (n, cLogic){
+			if ( cLogic == "S-shaped" ){
+				let m = n/100
+				n = (1/(1 + (Math.E^(-10*(m-0.5))))) * 100
+			}
+			
+			return n;
+		}
 		
 		
 		// Trasformo l'immagine in una canvas
