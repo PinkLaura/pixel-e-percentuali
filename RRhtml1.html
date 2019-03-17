@@ -5,19 +5,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src = "RRjs1.js"></script>
 <script type="text/javascript" src="caman.full.min.js"></script>
+
+	<style type="text/css"> 
+    #imageDiv, #tableDiv { 
+        float: left; 
+    } 
+	</style> 
+
 </head>
 
 <body>
-	<div>
-		<div id = "upload">
-				Carica l'immagine da manipolare:
-				<input type="file" 
-					name="fileToUpload" 
-					id="fileToUpload">
-				<input type="submit" 
-					value="Upload Image" 
-					id ="submitImage">
-		</div>
+	
+		
 		
 		<div id = "imageDiv">
 			<img 
@@ -39,6 +38,8 @@
 				src="image.jpg"
 				width="300" height="300" 
 			>
+			 
+			<br>
 			
 			<img 
 				id = "immagine3"
@@ -54,22 +55,30 @@
 			
 		</div>
 		
-		<div id = "insertN">
-		Inserisci un numero:
-		<input 
-			id = "value"
-			type="number" 
-			name="value" 
-			min="1" 
-			max="100"
-			step="1"
-			>
-		<input 
-			id = "submit"
-			type="submit"
-			value = "Via!"
-			>
+		<div id = "tableDiv">
+		
+		<TABLE 
+			borderColor=black  
+			cellSpacing=0 
+			cellPadding=10 
+			width="75%"
+			align= right
+			border = 5>
+		
+		<tr><td>
+		
+		<div id = "upload">
+				<p>
+				Carica l'immagine da manipolare:
+				<input type="file" 
+					name="fileToUpload" 
+					id="fileToUpload"
+					value = "Immagine di default"
+					accept= "image/*"
+				</p>
+				
 		</div>
+		
 		
 		<div id = "selectors">
 			<p> Seleziona il colore di sfondo: 
@@ -87,9 +96,37 @@
 			  <option value="S-shaped">S-shaped
 			</select>
 			</p> 
-		
 		</div>
 		
-	</div>
+		
+		<div id = "insertN">
+		<p>
+		Inserisci la percentuale da rappresentare:
+		<input 
+			id = "value"
+			type="number" 
+			name="value" 
+			min="1" 
+			max="100"
+			step="1"
+			value = 50
+			>
+		</p>
+		
+		<input 
+			id = "submit"
+			type="submit"
+			align = center
+			style="background-color: #6AEA6A"
+			value = "Via!"
+			>
+		</div>
+		
+		
+		
+		</td></tr></table>
+		
+		
+		</div>
 </body>
 </html>
