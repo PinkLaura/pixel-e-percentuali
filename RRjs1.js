@@ -101,9 +101,7 @@
 					let index = (y * canvasWidth + x) * 4;
 					
 					if ((Math.random() * 100) < n) { //rendo neri i 3/10 dei pixel 
-						data[index] = 255;
-						data[index + 1] = 255;
-						data[index + 2] = 255;
+						data[index+ 3] = 0;
 					}
 				}
 			}
@@ -132,10 +130,8 @@
             for (let x = 0; x < canvasWidth; ++x) {
                 let index = (y * canvasWidth + x) * 4;
                 if (index % 100 < n) { //rendo neri i 3/10 dei pixel 
-                    data[index] = 255;
-                    data[index + 1] = 255;
-                    data[index + 2] = 255;
-                }
+            		data[index+ 3] = 0;
+				}
             }
         }
 
