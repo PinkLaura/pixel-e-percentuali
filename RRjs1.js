@@ -203,7 +203,7 @@
 		}
 
 		//non funziona il reset nel blur
-		function BlurImage(n, id){
+		function BlurImage1(n, id){
 			
 			n = 100-n;
 			let obj = document.getElementById(id);
@@ -212,5 +212,31 @@
 				this.render();
 			});
 		}
+		
+		function BlurImage2 (n, id){
+			
+			let img = document.getElementById(id);
+			let ctxImg = img.getContext('2d');
+			
+			ctxImg.filter = "blur(20px)";
+			
+		}
+		
+		function BlurImage (n, canvasId) {
+
+			var c = document.getElementById(canvasId);
+			var ctx = c.getContext("2d");
+			ctx.globalAlpha = 0.1;
+
+			var offset = 1;
+
+			for (var i=1; i<=8; i+=1) {
+				ctx.drawImage(c, offset, 0, c.width - offset, c.height, 0, 0, c.width-offset, c.height);
+				ctx.drawImage(c, 0, offset, c.width, c.height - offset, 0, 0,c.width, c.height-offset);
+			}
+		}
+		
+		
+		//https://github.com/flozz/StackBlur
 
 });
