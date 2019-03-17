@@ -5,9 +5,10 @@
 			TurnInCanvas(document.getElementById("immagine3"));
 			TurnInCanvas(document.getElementById("immagine4"));
 			
+			let input = document.getElementById('fileToUpload');
+			input.addEventListener('change', submitImage);
 			
-			
-			$('#submitImage').click(function(){
+			function submitImage(){
 				let newImage = document.getElementById("fileToUpload").files[0];
 					console.log(newImage);
 					
@@ -21,10 +22,10 @@
 					reader.readAsDataURL(newImage);
 				}
 				 
-				});
+			};
 
 
-			// Evento chiamato al click
+			// Evento chiamato al VIA!
 			$('#submit').click(function(){
 				resetImg("immagine1");
 				resetImg("immagine2");
