@@ -44,9 +44,10 @@
 		
 		
 		function applyConversionLogic (n, cLogic){
+			
+			
 			if ( cLogic == "S-shaped" ){
-				let m = n/100
-				n = (1/(1 + (Math.E^(-10*(m-0.5))))) * 100
+				n =((1)/(1 + Math.pow(Math.E, (-10 * (((n)/(100))-0.5)))))*100
 			}
 			
 			return n;
