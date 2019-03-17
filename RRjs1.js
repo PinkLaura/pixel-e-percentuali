@@ -36,15 +36,24 @@
 				let cLogic = $('#conversionLogic').val();
 				n = applyConversionLogic ( n, cLogic);
 				
+				//prendo il valore di sfondo e lo imposto
+				let bColor =  $('#backgroundColor').val();
+				setBackgroundColor(bColor, "immagine1","immagine2","immagine3","immagine4" );
+				
 				RemoveRandomPixel(n, "immagine1");				
 				RemoveOrderedPixel(n, "immagine2");
 				ChangeAlpha(n, "immagine3");
 				SwapPixel(n, "immagine4");
 		});
 		
+		//Setta lo sfondo di ogni immagine con il colore di sfondo scelto dal menù a tendina
+		function setBackgroundColor (bColor, ...ids){			
+			for (let i = 0; i < ids.length; i++){
+				document.getElementById(ids[i]).style.backgroundColor = bColor;
+			}
+		}
 		
 		function applyConversionLogic (n, cLogic){
-			
 			
 			if ( cLogic == "S-shaped" ){
 				n =((1)/(1 + Math.pow(Math.E, (-10 * (((n)/(100))-0.5)))))*100
@@ -52,7 +61,6 @@
 			
 			return n;
 		}
-		
 		
 		// Trasformo l'immagine in una canvas
 		function TurnInCanvas(obj) {
