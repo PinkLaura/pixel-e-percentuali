@@ -42,10 +42,10 @@
 				setBackgroundColor(bColor, "immagine1","immagine2","immagine3","immagine4" );
 				
 				RemoveRandomPixel(n, "immagine1");				
-				RemoveOrderedPixel(n, "immagine2");
+				BlurImage1(n, "immagine2");
 				ChangeAlpha(n, "immagine3");
 				SwapPixel(n, "immagine4");
-		});
+			});
 		
 		//Setta lo sfondo di ogni immagine con il colore di sfondo scelto dal menù a tendina
 		function setBackgroundColor (bColor, ...ids){			
@@ -208,6 +208,7 @@
 			n = 100-n;
 			let obj = document.getElementById(id);
 			Caman(obj, function(){
+				this.reloadCanvasData();
 				this.stackBlur(n);
 				this.render();
 			});
