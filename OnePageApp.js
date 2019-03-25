@@ -1,57 +1,115 @@
  $(document).ready(function(){
-			
-			TurnInCanvas(document.getElementById("immagine1"));
-			TurnInCanvas(document.getElementById("immagine2"));
-			TurnInCanvas(document.getElementById("immagine3"));
-			TurnInCanvas(document.getElementById("immagine4"));
-			
-			let input = document.getElementById('fileToUpload');
-			input.addEventListener('change', submitImage);
-			
-			function submitImage(){
-				let newImage = document.getElementById("fileToUpload").files[0];
-					console.log(newImage);
-					
-				let reader  = new FileReader();
 	
-				reader.addEventListener("load", function () {
-					document.getElementById("reset").src = reader.result;
-				}, false);
-				
-				if (newImage) {
-					reader.readAsDataURL(newImage);
-				}
-				 
-			};
-
-
-			// Evento chiamato al VIA!
-			$('#submit').click(function(){
-				resetImg("immagine1");
-				resetImg("immagine2");
-				resetImg("immagine3");
-				resetImg("immagine4");
-				
-				//prendo il valore di n e applico la logica di conversione richiesta
-				let n = $('#value').val();	
-				let cLogic = $('#conversionLogic').val();
-				n = applyConversionLogic ( n, cLogic);
-				
-				//prendo il valore di sfondo e lo imposto
-				let bColor =  $('#backgroundColor').val();
-				setBackgroundColor(bColor, "immagine1","immagine2","immagine3","immagine4" );
-				
-				RemoveRandomPixel(n, "immagine1");				
-				BlurImage1(n, "immagine2");
-				ChangeAlpha(n, "immagine3");
-				SwapPixel(n, "immagine4");
-			});
+	TurnInCanvas(document.getElementById("immagine1"));
+	TurnInCanvas(document.getElementById("immagine2"));
+	
+	let input = document.getElementById('fileToUpload');
+	input.addEventListener('change', submitImage);
+	
+	function submitImage(){
+		let newImage = document.getElementById("fileToUpload").files[0];
+			console.log(newImage);
 		
-		//Setta lo sfondo di ogni immagine con il colore di sfondo scelto dal menù a tendina
-		function setBackgroundColor (bColor, ...ids){			
-			for (let i = 0; i < ids.length; i++){
-				document.getElementById(ids[i]).style.backgroundColor = bColor;
+		let reader  = new FileReader();
+			reader.addEventListener("load", function () {
+			document.getElementById("reset").src = reader.result;
+		}, false);
+		
+		if (newImage) {
+			reader.readAsDataURL(newImage);
+		}
+		 
+	};
+
+
+	$('#submit').click(function(e){
+		e.preventDefault();
+		
+		toSliderPage();
+		
+		resetImgs("immagine1", "immagine2");
+		
+		//prendo il valore di n e applico la logica di conversione richiesta
+		let n = $('#value').val();	
+		let cLogic = $('#conversionLogic').val();
+		n = applyConversionLogic ( n, cLogic);
+		
+		//prendo il valore di sfondo e lo imposto
+		let bColor =  $('#backgroundColor').val();
+		setBackgroundColor(bColor);
+		
+		//applico l'effetto scelto
+		let effect = $('#effect').val();
+		applyEffect(effect, n, "immagine1");
+	
+	});
+	
+	$('#back').click(function(e){
+		e.preventDefault();
+		
+		toIndexPage();
+	});
+	
+	$(document).on( 'input change', '#slider', function(){
+		
+		resetImg("immagine2");
+		
+		n = $(this).val();	
+		let cLogic = $('#conversionLogic').val();
+		n = applyConversionLogic ( n, cLogic);
+		
+		let effect = $('#effect').val();
+		applyEffect(effect, n, "immagine2");
+	});
+	
+		
+	
+		function applyEffect(effect, n, id){
+			switch(effect) {
+			  case "1":
+				RemoveRandomPixel(n, id);
+				break;
+			  case "2":
+				RemoveOrderedPixel(n, id);
+				break;
+			  case "3":
+				ChangeAlpha(n, id);
+				break;
+			  case "4":
+				SwapPixel(n, id);
+				break;
+			  case "5":
+				BlurImage(n, id);
+				break;
+				
+			  default:
+				console.log("Error");
 			}
+		}
+
+		function toSliderPage(){
+			let x = document.getElementById('indexPage');
+			x.style.display = 'none';
+			let y = document.getElementById('sliderPage');
+			y.style.display = 'block';
+		}
+		
+		function toIndexPage(){
+			let y = document.getElementById('sliderPage');
+			y.style.display = 'none';
+			let x = document.getElementById('indexPage');
+			x.style.display = 'block';
+		}
+
+		function resetImgs(...ids){
+			for (let i = 0; i < ids.length; i++){
+				resetImg(ids[i]);
+			}
+		}
+
+		//Setta lo sfondo 
+		function setBackgroundColor (bColor){			
+			document.getElementById("sliderPage").style.backgroundColor = bColor;
 		}
 		
 		function applyConversionLogic (n, cLogic){
@@ -68,10 +126,11 @@
 			Caman(obj, function() {
 				this.render();
 			});
+			
 		}
 
 		function resetImg(id) {
-					
+				
 			let reset = document.getElementById("reset");
 
 			let img = document.getElementById(id);
@@ -202,8 +261,7 @@
 		
 		}
 
-		//non funziona il reset nel blur
-		function BlurImage1(n, id){
+		function BlurImage(n, id){
 			
 			n = 100-n;
 			let obj = document.getElementById(id);
@@ -213,31 +271,5 @@
 				this.render();
 			});
 		}
-		
-		function BlurImage2 (n, id){
-			
-			let img = document.getElementById(id);
-			let ctxImg = img.getContext('2d');
-			
-			ctxImg.filter = "blur(20px)";
-			
-		}
-		
-		function BlurImage (n, canvasId) {
-
-			var c = document.getElementById(canvasId);
-			var ctx = c.getContext("2d");
-			ctx.globalAlpha = 0.1;
-
-			var offset = 1;
-
-			for (var i=1; i<=8; i+=1) {
-				ctx.drawImage(c, offset, 0, c.width - offset, c.height, 0, 0, c.width-offset, c.height);
-				ctx.drawImage(c, 0, offset, c.width, c.height - offset, 0, 0,c.width, c.height-offset);
-			}
-		}
-		
-		
-		//https://github.com/flozz/StackBlur
 
 });

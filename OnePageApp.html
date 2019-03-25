@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+   <head>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script type="text/javascript" src = "OnePageApp.js"></script>
+	  <script type="text/javascript" src="caman.full.min.js"></script>
+
+      <link 
+         rel = "stylesheet" 
+         href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+         crossorigin="anonymous"
+      />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+      <title>Rappresentazione di percentuali</title>
+   </head>
+   
+   <body class ="container">
+		
+		<br/>
+		
+		<div id = "resetImgDiv">
+			<img 
+				id="reset" 
+				src="image.jpg" 
+				style="display:none"
+ 			/>
+		</div>
+		
+		<div id = "indexPage">
+		   <div class="card">
+			 <div class="card-header text-white bg-info">Inserisci cose</div>
+			 <div class="card-body bg-light">
+				<form method="get" action="pagina2.html"  >
+					
+					<!-- Selettore effetto -->
+					<div class="form-group">
+					<label for="effect" class="col-form-label">Seleziona l'effetto che desideri testare: </label>
+				   
+					<select id = "effect" name = "effect" class = "btn btn-outline-dark">
+						 <option value = "1"/> Rimozione random di pixel
+						 <option value = "2"/> Rimozione ordinata di pixel
+						 <option value = "3"/> Trasparenza
+						 <option value = "4"/> Scambio random di pixel
+						 <option value = "5"/> Blur
+					</select>
+				   </div>
+					
+					<!-- Upload immagine -->
+					<div class="form-group">
+					<label for="fileToUpload" class="col-form-label">Carica l'immagine da manipolare:</label>
+				   
+					<input 
+						 type = "file"
+						 name = "fileToUpload" 
+						 class="form-control"
+						 id = "fileToUpload"
+						 value = "Immagine di default"
+						 accept= "image/*"
+					/>
+					</div>
+					
+				   <!-- Selettori a cascata -->
+				   <div class="form-group">
+				   <label for="backgroundColor" class="col-form-label">Seleziona il colore di sfondo: </label>
+				   
+					<select id = "backgroundColor" name = "backgroundColor" class = "btn btn-outline-dark">
+						 <option value = "White"/> Bianco
+						 <option value = "Black"/> Nero
+					</select>
+				   </div>
+				   
+				   <div class="form-group">
+				   <label for="backgroundColor" class="col-form-label"> Seleziona la logica di conversione: </label>
+					  
+				   <select id = "conversionLogic" name = "conversionLogic" class = "btn btn-outline-dark">
+						 <option value = "Linear"/> Lineare
+						 <option value = "S-shaped"/> S-shaped
+					</select>
+				   </div>
+				   
+				   <!-- Inserisci percentuale -->
+				   <div class="form-group">
+				   <label for="value" class="col-form-label"> Inserisci la percentuale da rappresentare: </label>
+					  
+					<input 
+						 id = "value"
+						 type = "number" 
+						 name = "value" 
+						 class="form-control"
+						 min = "1" 
+						 max = "100"
+						 step = "1"
+						 value = "100"
+					/>
+					</div>
+					
+				   <!-- SUBMIT -->
+				   <div class="text-right">
+					   <input 
+						  id = "submit"
+						  name = "invio"
+						  class = "btn btn-info"
+						  type = "submit"
+						  value = "Via!"
+						  />
+					</div>
+				</form>
+			 </div>
+		   </div>
+		</div>
+		
+		
+		<div id = "sliderPage"	style = "display:none" >
+				
+				<!-- Back button -->
+				<div class="text-right">
+					<button 
+						id = "back"
+						name = "indietro"
+						class = "btn btn-warning"
+					>
+					Torna indietro
+					</button>
+				</div>
+			
+				<h4>Ed ecco l'immagine con il filtro applicato, e quella originale </h4> 
+
+				<img 
+					id = "immagine1"
+					src="image.jpg"
+					style="margin:25px 25px"
+				/>
+				
+				<img 
+					id = "immagine2"
+					src="image.jpg"
+					style="margin:25px 25px"
+				/>
+				
+				<!-- Slider -->
+				<form>
+				  <div class="form-group">
+					<label for="formControlRange">Modifica l'effetto dell'immagine di riferimento</label>
+					<input 
+						type="range" 
+						id="slider" 
+						class="form-control-range" 
+						id="formControlRange"
+						min="0" max="100" step="1" value="100"
+					/>
+				  </div>
+				</form>
+		</div>
+		
+		
+   
+   </body>
+</html>
