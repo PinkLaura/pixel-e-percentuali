@@ -16,13 +16,12 @@
 La funzione S-shaped (ad esempio: 1/(1+e^(−10*(x−0.5)))) invece attenua i valoi vicini agli estremi del'intervallo [0-1].
 
 
-## STATO DELL'ARTE
+## Stato dell'arte
 - Rimozione pixel funzionante
 - Trasparenza funzionante
-- Swap funzionante con dubbi: pixel scambiati con posizioni casuali, va bene? Non è preciso al 100% ma effettua comunque uno scambio abbastanza preciso
-Ha senso che una percentuale del 30% scambi il 30% dei pixel e non il contrario?
-- Blur: non funziona il reset, non ho ben chiaro il range della libreria, dovrò capirlo meglio
-- L'immagine viene tagliata 300x300 pixel. Modificarla? Un'immagine ad alta risoluzione andrebbe comunque ridimensionata per essere visualizzata, ma canva non accetta ridimensionamenti...
+- Swap funzionante 
+- Blur: da controllare il range, ha senso così?
+- Questione doppia pagina risolta
 
-- due pagine separate, ha senso? upload sul server o filereader? 
-- Sia slider che invio? ma quindi devo fare in modo che la casella di testo cambi numero quando sposto lo slider? Laura è confusa
+- L'immagine viene tagliata # DA RISOLVERE 
+- Ho messo slider e invio in due pagine diverse, ha senso?
