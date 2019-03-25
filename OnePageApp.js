@@ -97,6 +97,7 @@ $(document).ready(function() {
         y.style.display = 'none';
         let x = document.getElementById('indexPage');
         x.style.display = 'block';
+		
         document.body.className = "container bg-white text-black";
     }
 
@@ -108,7 +109,9 @@ $(document).ready(function() {
 
     //Setta lo sfondo 
     function setBackgroundColor(bColor) {
-        document.body.className = "container bg-dark text-white";
+        if(bColor == "Black"){
+			document.body.className = "container bg-dark text-white";
+		}
     }
 
     function applyConversionLogic(n, cLogic) {
