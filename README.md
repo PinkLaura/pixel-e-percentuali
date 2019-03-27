@@ -6,8 +6,8 @@
 1. Il sistema dovrà essere on line e correttamente eseguito sui browser comuni (ad es. Firefox)
 2. Il sistema dovrà accettare in ingresso una immagine ad alta risoluzione (ad esempio con controllo `<input>`)
 3. Il sistema prende in ingresso anche due percentuali (numero tra 0 e 100), sia come input text che come slider continuo in una pagina, e, con selettore a cascata, il colore si sfondo (black | white) e la logica di conversione (linear | S-shaped)
-4a. Il sistema, in un'altra pagina rispetto all'inserimento delle percentuali, visualizza due volte l'immagine caricata su sfondo, in modalità affiancata (larghezza 45%, con padding tra le immagini di almeno 50 pixel)
-4b. Il sistema dovrà applicare alla immagini i seguenti effetti, in misura proporzionale alle percentuali inserite:
+4. Il sistema, in un'altra pagina rispetto all'inserimento delle percentuali, visualizza due volte l'immagine caricata su sfondo, in modalità affiancata (larghezza 45%, con padding tra le immagini di almeno 50 pixel)
+4. Il sistema dovrà applicare alla immagini i seguenti effetti, in misura proporzionale alle percentuali inserite:
   1. il blur dell'immagine
   2. la trasparenza dell'immagine (alpha layer)
   3. la quantità di pixel colorati (rispetto ad averli del colore di sfondo)
