@@ -10,17 +10,26 @@ $(document).ready(function() {
         let newImage = document.getElementById("fileToUpload").files[0];
         console.log(newImage);
 
+		let i = new Image(); 
+		
+		i.onload = function(){
+			resizeImgs(i.width, i.height, "immagine1", "immagine2");
+		};
+
         let reader = new FileReader();
         reader.addEventListener("load", function() {
-            document.getElementById("reset").src = reader.result;
+			
+			i.src = reader.result;
+			
+			document.getElementById("reset").src = reader.result;
         }, false);
 
         if (newImage) {
             reader.readAsDataURL(newImage);
         }
-
+					
+		
     };
-
 
     $('#submit').click(function(e) {
         e.preventDefault();
@@ -61,6 +70,15 @@ $(document).ready(function() {
         let effect = $('#effect').val();
         applyEffect(effect, n, "immagine2");
     });
+
+	function resizeImgs( width, height, ...ids){
+		for (let i = 0; i < ids.length; i++) {
+            document.getElementById(ids[i]).style.height = height + "px";
+			document.getElementById(ids[i]).style.width = width + "px";
+						console.log("gatto");
+
+        }
+	}
 
     function applyEffect(effect, n, id) {
         switch (effect) {
