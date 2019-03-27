@@ -24,4 +24,5 @@ La funzione S-shaped (ad esempio: 1/(1+e^(−10*(x−0.5)))) invece attenua i va
 - Questione doppia pagina risolta
 
 - L'immagine viene tagliata # DA RISOLVERE 
+- Problema: immagini ad alta definizione, come gestirle? ora vengono tagliate anche adattando le dimensioni, perchè escono dalla pagina
 - Ho messo slider e invio in due pagine diverse, ha senso?
