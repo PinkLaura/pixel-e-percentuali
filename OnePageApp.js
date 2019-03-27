@@ -27,7 +27,6 @@ $(document).ready(function() {
         if (newImage) {
             reader.readAsDataURL(newImage);
         }
-					
 		
     };
 
@@ -73,11 +72,14 @@ $(document).ready(function() {
 
 	function resizeImgs( width, height, ...ids){
 		for (let i = 0; i < ids.length; i++) {
-            document.getElementById(ids[i]).style.height = height + "px";
-			document.getElementById(ids[i]).style.width = width + "px";
-						console.log("gatto");
+				let im = document.getElementById(ids[i]);
 
-        }
+				im.style.width = width + "px";
+				im.style.height = height + "px";
+				im.height = height;
+				im.width = width;
+				console.log("gatto");
+			}
 	}
 
     function applyEffect(effect, n, id) {
