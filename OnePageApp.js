@@ -8,8 +8,7 @@ $(document).ready(function() {
 
     function submitImage() {
         let newImage = document.getElementById("fileToUpload").files[0];
-        console.log(newImage);
-
+		
 		let i = new Image(); 
 		
 		i.onload = function(){
@@ -29,6 +28,10 @@ $(document).ready(function() {
         }
 		
     };
+	/*
+	document.gelementById("immagine1").onresize(function() {
+    // applico di nuovo le funzioni 
+	});*/
 
     $('#submit').click(function(e) {
         e.preventDefault();
@@ -59,23 +62,33 @@ $(document).ready(function() {
     });
 
     $(document).on('input change', '#slider', function() {
-
+		
+		
         resetImg("immagine2");
 
         n = $(this).val();
+		
+		changeLabel(n);
+		
         let cLogic = $('#conversionLogic').val();
         n = applyConversionLogic(n, cLogic);
-
+		
         let effect = $('#effect').val();
         applyEffect(effect, n, "immagine2");
     });
 
+	function changeLabel(n){
+		document.getElementById("rangeLabel").innerHTML = '<span id="f" style="font-weight:bold">' + n + ' %</span>'
+	}
+	
+	
 	function resizeImgs( width, height, ...ids){
 		for (let i = 0; i < ids.length; i++) {
 				let im = document.getElementById(ids[i]);
-
-				im.style.width = width + "px";
-				im.style.height = height + "px";
+				
+				
+				im.style.width = 40 + "%";
+				im.style.height = 40 + "%";
 				im.height = height;
 				im.width = width;
 				console.log("gatto");
