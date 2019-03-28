@@ -74,8 +74,8 @@ $(document).ready(function() {
 		for (let i = 0; i < ids.length; i++) {
 				let im = document.getElementById(ids[i]);
 
-				im.style.width = width + "px";
-				im.style.height = height + "px";
+				im.style.width = 100 + "%";
+				im.style.height = 100 + "%";
 				im.height = height;
 				im.width = width;
 				console.log("gatto");
