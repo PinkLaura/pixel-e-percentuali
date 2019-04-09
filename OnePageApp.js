@@ -28,10 +28,6 @@ $(document).ready(function() {
         }
 		
     };
-	/*
-	document.gelementById("immagine1").onresize(function() {
-    // applico di nuovo le funzioni 
-	});*/
 
     $('#submit').click(function(e) {
         e.preventDefault();
@@ -81,11 +77,9 @@ $(document).ready(function() {
 		document.getElementById("rangeLabel").innerHTML = '<span id="f" style="font-weight:bold">' + n + ' %</span>'
 	}
 	
-	
 	function resizeImgs( width, height, ...ids){
 		for (let i = 0; i < ids.length; i++) {
 				let im = document.getElementById(ids[i]);
-				
 				
 				im.style.width = 40 + "%";
 				im.style.height = 40 + "%";
