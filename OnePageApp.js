@@ -83,10 +83,16 @@ $(document).ready(function() {
 				
 				im.style.width = 40 + "%";
 				im.style.height = 40 + "%";
-				im.height = height;
-				im.width = width;
-				console.log("gatto");
-			}
+				
+				Caman(im, function() {
+					this.resize({
+						width: width,
+						height: height});
+
+					// You still have to call render!
+					this.render();
+				});
+		}
 	}
 
     function applyEffect(effect, n, id) {
